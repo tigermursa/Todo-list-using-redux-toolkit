@@ -1,19 +1,21 @@
 import { PenBoxIcon, Trash2 } from "lucide-react";
 import { Button } from "../ui/button";
 import { useAppDispatch } from "@/redux/hook";
-import { removeTodo } from "@/redux/features/todoSlice";
+import { removeTodo, toggleComplete } from "@/redux/features/todoSlice";
 
 type TTodoCardProps = {
   id: string;
   title: string;
   description: string;
-  isCompleted: boolean;
+  isCompleted?: boolean;
 };
 
 const TodoCard = ({ title, description, id, isCompleted }: TTodoCardProps) => {
   const dispatch = useAppDispatch();
 
-  const toggleState = () => {};
+  const toggleState = () => {
+    dispatch(toggleComplete(id));
+  };
 
   return (
     <div>
