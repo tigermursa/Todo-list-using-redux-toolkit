@@ -2,7 +2,7 @@ import Todo from "./pages/Todo";
 
 const App = () => {
   return (
-    <div className="text-4xl ">
+    <div className="">
       <Todo />
     </div>
   );
