@@ -1,16 +1,44 @@
 import { PenBoxIcon, Trash2 } from "lucide-react";
 import { Button } from "../ui/button";
+import { useAppDispatch } from "@/redux/hook";
+import { removeTodo } from "@/redux/features/todoSlice";
 
-const TodoCard = () => {
+type TTodoCardProps = {
+  id: string;
+  title: string;
+  description: string;
+  isCompleted: boolean;
+};
+
+const TodoCard = ({ title, description, id, isCompleted }: TTodoCardProps) => {
+  const dispatch = useAppDispatch();
+
+  const toggleState = () => {};
+
   return (
     <div>
       <div className=" rounded-md flex justify-between items-center p-3 border ">
-        <input type="checkbox" name="" id="" />
-        <p className="font-bold">Todo Title</p>
-        <p>Time</p>
-        <p>Description</p>
+        <input
+          onChange={toggleState}
+          type="checkbox"
+          name="complete"
+          id="complete"
+        />
+        <p className="font-bold">{title}</p>
+        {/* <p>Time</p> */}
+        <div>
+          {isCompleted ? (
+            <p className="text-green-600 font-semibold">Done</p>
+          ) : (
+            <p className="text-red-600 font-semibold">Pending</p>
+          )}
+        </div>
+        <p>{description}</p>
         <div className="flex space-x-5">
-          <Button className="bg-red-500">
+          <Button
+            onClick={() => dispatch(removeTodo(id))}
+            className="bg-red-500"
+          >
             <Trash2 />
           </Button>
           <Button className="bg-blue-800">
