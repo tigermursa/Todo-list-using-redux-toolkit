@@ -1,3 +1,6 @@
+import { PenBoxIcon, Trash2 } from "lucide-react";
+import { Button } from "../ui/button";
+
 const TodoCard = () => {
   return (
     <div>
@@ -7,8 +10,12 @@ const TodoCard = () => {
         <p>Time</p>
         <p>Description</p>
         <div className="flex space-x-5">
-          <div>DEL</div>
-          <div>Edit</div>
+          <Button className="bg-red-500">
+            <Trash2 />
+          </Button>
+          <Button className="bg-blue-800">
+            <PenBoxIcon />
+          </Button>
         </div>
       </div>
     </div>
