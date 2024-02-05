@@ -1,10 +1,9 @@
-import { Button } from "./components/ui/button";
+import Todo from "./pages/Todo";
 
 const App = () => {
   return (
-    <div>
-      <p>My TOdo</p>
-      <Button>Hello world</Button>
+    <div className="text-4xl ">
+      <Todo />
     </div>
   );
 };
