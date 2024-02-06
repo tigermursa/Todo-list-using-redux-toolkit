@@ -10,7 +10,14 @@ type TTodoCardProps = {
   isCompleted?: boolean;
 };
 
-const TodoCard = ({ title, description, id, isCompleted }: TTodoCardProps) => {
+const TodoCard = ({
+  title,
+  description,
+  id,
+  isCompleted,
+  name,
+  website,
+}: TTodoCardProps) => {
   const dispatch = useAppDispatch();
 
   const toggleState = () => {

@@ -2,9 +2,20 @@ import { useAppSelector } from "@/redux/hook";
 import AddTodoModal from "./AddTodoModal";
 import TodoCard from "./TodoCard";
 import TodoFilter from "./TodoFilter";
+import { useGetUsersQuery } from "@/redux/api/api";
 
 const TodoContainer = () => {
-  const { todos } = useAppSelector((state) => state.todos);
+  //from local
+    const { todos } = useAppSelector((state) => state.todos);
+
+  //from sever
+  // const { data: todos, isError, isLoading } = useGetUsersQuery(undefined);
+
+  // console.log(todos);
+  // if (isLoading) {
+  //   return <div>Loading..</div>;
+  // }
+
   return (
     <div>
       <div className="flex justify-between mb-5">
