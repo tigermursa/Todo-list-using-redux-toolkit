@@ -14,7 +14,6 @@ const TodoContainer = () => {
   //from sever
   const { data: todos, isError, isLoading } = useGetTodosQuery(priority);
 
-  console.log(todos);
   if (isLoading) {
     return <div>Loading..</div>;
   }
@@ -32,7 +31,7 @@ const TodoContainer = () => {
   </div>*/}
         <div className="bg-white p-5 w-full h-full rounded-lg space-y-4">
           {todos?.data?.map((item) => (
-            <TodoCard key={item.id} {...item} />
+            <TodoCard key={item._id} {...item} />
           ))}
         </div>
       </div>
