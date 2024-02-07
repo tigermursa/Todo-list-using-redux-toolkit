@@ -29,3 +29,4 @@ tailwind.config.js
 postcss.json
 .eslintrc.cjs
 vaite-env.d.ts
+.vercel
