@@ -29,7 +29,7 @@ const TodoContainer = () => {
         {/*<div className="bg-white p-5 flex justify-center items-center rounded-md text-2xl text-bold">
           <p>There is no task pending </p>
   </div>*/}
-        <div className="bg-white p-5 w-full h-full rounded-lg space-y-4">
+        <div className="bg-white p-1 md:p-4 lg:p-5 w-full h-full rounded-lg space-y-4">
           {todos?.data?.map((item) => (
             <TodoCard key={item._id} {...item} />
           ))}

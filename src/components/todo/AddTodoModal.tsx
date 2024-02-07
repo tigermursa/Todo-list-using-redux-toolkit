@@ -108,7 +108,7 @@ const AddTodoModal = () => {
           </div>
           <div className="flex justify-end">
             <DialogClose>
-              <Button type="submit">Save changes</Button>
+              <Button type="submit" className="bg-primary-gradient">Save changes</Button>
             </DialogClose>
           </div>
         </form>

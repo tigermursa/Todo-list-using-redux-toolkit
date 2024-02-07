@@ -6,6 +6,7 @@ import {
   useDeleteTodosMutation,
   useUpdateTodosMutation,
 } from "@/redux/api/api";
+import UpdateTodoModal from "./UpdateTodoModal";
 
 type TTodoCardProps = {
   _id: string;
@@ -70,14 +71,14 @@ const TodoCard = ({
         <p className="font-bold flex-1">{title}</p>
         <div className="flex-1 flex items-center ">
           <div
-            className={` size-3 rounded-full me-3 
+            className={` size-3 rounded-full me-1 
             ${priority === "high" ? "bg-red-600" : null}
             ${priority === "medium" ? "bg-yellow-500" : null}
             ${priority === "low" ? "bg-green-600" : null}
             
             `}
           ></div>
-          <p className="font-bold ">{priority}</p>
+          <p className="font-bold p-2 pe-3 ">{priority}</p>
         </div>
 
         {/* <p>Time</p> */}
@@ -104,12 +105,31 @@ const TodoCard = ({
             </p>
           )}
         </div>
-        <p className="flex-[2]">{description}</p>
+        <p className="flex-[2] truncate ps-3 hidden md:flex">{description}</p>
         <div className="flex space-x-5">
-          <Button onClick={deleteTask} title={_id} className="bg-red-500">
+          <Button
+            onClick={deleteTask}
+            title={_id}
+            className="bg-red-500 ps-3 hidden md:flex"
+          >
             <Trash2 />
           </Button>
-          <Button className="bg-blue-800">
+          <Button
+            onClick={deleteTask}
+            title={_id}
+            className=" ps-3 md:hidden"
+            variant={"ghost"}
+          >
+            <Trash2 />
+          </Button>
+          <UpdateTodoModal
+            _id={_id}
+            title={title}
+            description={description}
+            isCompleted={isCompleted}
+            priority={priority}
+          />
+          <Button className="md:hidden" variant={"ghost"}>
             <PenBoxIcon />
           </Button>
         </div>

@@ -29,15 +29,15 @@ export const baseApi = createApi({
                 method: "POST",
                 body: data,
             }),
-            invalidatesTags: ['todo']
+            invalidatesTags: ['todo']  //for make fetch after the action
         }),
         updateTodos: builder.mutation({
             query: (options) => ({
                 url: `/task/${options.id}`,
                 method: "PUT",
                 body: options.data,
-            }),
-            invalidatesTags: ['todo']
+            }), 
+            invalidatesTags: ['todo'] //for make fetch after the action
         }),
         deleteTodos: builder.mutation({
             query: (options) => ({
@@ -45,7 +45,7 @@ export const baseApi = createApi({
                 method: "DELETE",
                 body: options.data,
             }),
-            invalidatesTags: ['todo']
+            invalidatesTags: ['todo'] //for make fetch after the action
         }),
     }),
 });
