@@ -2,7 +2,7 @@ import Todo from "./pages/Todo";
 
 const App = () => {
   return (
-    <div className="">
+    <div className="bg-black">
       <Todo />
     </div>
   );

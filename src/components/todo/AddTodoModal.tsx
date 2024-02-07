@@ -54,7 +54,7 @@ const AddTodoModal = () => {
     <Dialog>
       <DialogTrigger asChild>
         <Button className="bg-primary-gradient text-xl font-semibold">
-          Add todo
+        <span className="text-2xl me-1 mb-1">+</span>  Add todo  
         </Button>
       </DialogTrigger>
 

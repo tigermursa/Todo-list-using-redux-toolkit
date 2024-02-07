@@ -15,7 +15,7 @@ const TodoContainer = () => {
   const { data: todos, isError, isLoading } = useGetTodosQuery(priority);
 
   if (isLoading) {
-    return <div>Loading..</div>;
+    return <div className="flex justify-center items-center h-[70vh] font-semibold text-purple-500 text-2xl lg:text-5xl">Loading...</div>;
   }
 
   return (
