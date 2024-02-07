@@ -65,7 +65,7 @@ const UpdateTodoModal = ({
     <div>
       <Dialog>
         <DialogTrigger asChild>
-          <Button className="bg-blue-700">
+          <Button variant={"ghost"}>
             <PenBoxIcon />
           </Button>
         </DialogTrigger>

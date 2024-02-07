@@ -66,7 +66,14 @@ const TodoCard = ({
           name="complete"
           id="complete"
           className="me-4"
-          defaultChecked={isCompleted} // that will show the checked task even after loading
+          defaultChecked={isCompleted}
+          style={{
+            width: "20px",
+            height: "20px",
+            borderRadius: "50%", // Full border-radius for a circular shape
+            backgroundColor: "red", // Background color in red
+            color: "red", // Text color in red (optional)
+          }}
         />
         <div className=" flex items-center mr-2">
           <div
@@ -78,10 +85,16 @@ const TodoCard = ({
             `}
           ></div>
         </div>
-        <p className="font-bold flex-1 ">{title}</p>
+        <p
+          className={`font-bold flex-1 truncate ${
+            isCompleted ? "line-through" : "" // Apply line-through for completed tasks
+          }`}
+        >
+          {title}
+        </p>
 
         {/* <p>Time</p> */}
-        <div className="flex-1">
+        <div className="me-2 ms-2 hidden md:flex">
           {isCompleted ? (
             <p className="text-green-600 font-semibold">
               {isLoading ? (
@@ -104,19 +117,11 @@ const TodoCard = ({
             </p>
           )}
         </div>
-        <p className="flex-[2] truncate ps-3 hidden md:flex">{description}</p>
-        <div className="flex space-x-5">
+        <div className="flex">
           <Button
             onClick={deleteTask}
             title={_id}
-            className="bg-red-500 ps-3 hidden md:flex"
-          >
-            <Trash2 />
-          </Button>
-          <Button
-            onClick={deleteTask}
-            title={_id}
-            className=" ps-3 md:hidden"
+            className=""
             variant={"ghost"}
           >
             <Trash2 />
@@ -128,9 +133,6 @@ const TodoCard = ({
             isCompleted={isCompleted}
             priority={priority}
           />
-          <Button className="md:hidden" variant={"ghost"}>
-            <PenBoxIcon />
-          </Button>
         </div>
       </div>
     </div>
