@@ -68,18 +68,17 @@ const TodoCard = ({
           className="me-4"
           defaultChecked={isCompleted} // that will show the checked task even after loading
         />
-        <p className="font-bold flex-1">{title}</p>
-        <div className="flex-1 flex items-center ">
+        <div className=" flex items-center mr-2">
           <div
-            className={` size-3 rounded-full me-1 
+            className={` size-3 rounded-full 
             ${priority === "high" ? "bg-red-600" : null}
             ${priority === "medium" ? "bg-yellow-500" : null}
             ${priority === "low" ? "bg-green-600" : null}
             
             `}
           ></div>
-          <p className="font-bold p-2 pe-3 ">{priority}</p>
         </div>
+        <p className="font-bold flex-1 ">{title}</p>
 
         {/* <p>Time</p> */}
         <div className="flex-1">

@@ -22,6 +22,7 @@ import {
 import { DialogClose } from "@radix-ui/react-dialog";
 import { FormEvent, useState } from "react";
 import { useUpdateTodosMutation } from "@/redux/api/api";
+
 type TTodoCardProps = {
   _id: string;
   title: string;
@@ -29,6 +30,7 @@ type TTodoCardProps = {
   isCompleted?: boolean;
   priority: string;
 };
+
 const UpdateTodoModal = ({
   _id,
   title,
@@ -36,29 +38,29 @@ const UpdateTodoModal = ({
   isCompleted,
   priority,
 }: TTodoCardProps) => {
-  const [taskUp, setTask] = useState("");
-  const [descriptionUp, setDescription] = useState("");
-  const [priorityUp, setPriority] = useState("");
-  //for server
-  const [UpdateTodo, { data, isLoading, isError, isSuccess }] =
+  const [task, setTask] = useState(title); // Use title as the initial state
+  const [descriptionUp, setDescription] = useState(description);
+  const [priorityUp, setPriority] = useState(priority);
+
+  const [updateTodo, { data, isLoading, isError, isSuccess }] =
     useUpdateTodosMutation();
 
-  const onSubmit = () => {
+  const onSubmit = (e: FormEvent) => {
+    e.preventDefault(); 
     const taskData = {
-      title: taskUp,
+      title: task,
       description: descriptionUp,
       priority: priorityUp,
     };
-    //dispatch(toggleComplete(id));
-    //server
 
     const options = {
       id: _id,
       data: taskData,
     };
 
-    UpdateTodo(options);
+    updateTodo(options);
   };
+
   return (
     <div>
       <Dialog>
@@ -73,7 +75,7 @@ const UpdateTodoModal = ({
             <DialogDescription>Update your task if you want</DialogDescription>
           </DialogHeader>
           <form onSubmit={onSubmit}>
-            <div onSubmit={onSubmit} className="grid gap-4 py-4">
+            <div className="grid gap-4 py-4">
               <div className="grid grid-cols-4 items-center gap-4">
                 <Label htmlFor="task" className="text-right">
                   Task
@@ -86,23 +88,26 @@ const UpdateTodoModal = ({
                 />
               </div>
               <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="description" className="text-right">
+                <Label htmlFor="descriptionUp" className="text-right">
                   Description
                 </Label>
                 <Input
                   onBlur={(e) => setDescription(e.target.value)}
-                  id=" description"
+                  id="descriptionUp"
                   className="col-span-3"
                   defaultValue={description}
                 />
               </div>
               <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="description" className="text-right">
+                <Label htmlFor="priorityUp" className="text-right">
                   Priority
                 </Label>
-                <Select onValueChange={(value: string) => setPriority(value)}>
+                <Select
+                  onValueChange={(value: string) => setPriority(value)}
+                  value={priorityUp}
+                >
                   <SelectTrigger className="col-span-3">
-                    <SelectValue placeholder="Select Priority" />
+                    <SelectValue placeholder={priority} />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
