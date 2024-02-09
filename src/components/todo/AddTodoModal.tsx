@@ -54,7 +54,7 @@ const AddTodoModal = () => {
     <Dialog>
       <DialogTrigger asChild>
         <Button className="bg-primary-gradient text-xl font-semibold">
-        <span className="text-2xl me-1 mb-1">+</span>  Add todo  
+          <span className="text-2xl font-bold me-1 mb-1">+</span> Add todo
         </Button>
       </DialogTrigger>
 
@@ -108,7 +108,9 @@ const AddTodoModal = () => {
           </div>
           <div className="flex justify-end">
             <DialogClose>
-              <Button type="submit" className="bg-primary-gradient">Save changes</Button>
+              <Button type="submit" className="bg-primary-gradient">
+                Save changes
+              </Button>
             </DialogClose>
           </div>
         </form>

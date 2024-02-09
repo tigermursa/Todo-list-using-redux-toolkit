@@ -24,10 +24,15 @@ const TodoContainer = () => {
 
   return (
     <div>
+      <h1 className="text-center text-5xl font-bold font-serif my-10">
+        <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600 ">
+          My Todos ({todos?.data.length})
+        </span>
+      </h1>
       {todos?.data.length == +0 ? (
         <div className="h-[70vh] flex flex-col gap-7 justify-center items-center border rounded-full">
-          <p className="  font-semibold text-blue-600 text-2xl lg:text-5xl font-mono">
-            Nothing Todo!😁
+          <p className="  font-semibold text-blue-600 text-2xl lg:text-5xl font-mono ">
+            Nothing Todo!😎
           </p>
           <AddTodoModal />
         </div>
