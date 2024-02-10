@@ -11,6 +11,7 @@ export const baseApi = createApi({
         //getting data from database
         getTodos: builder.query({
             query: (priority) => {
+                //filtering by the priority
                 const params = new URLSearchParams();
                 if (priority) {
                     params.append('priority', priority)
@@ -23,6 +24,7 @@ export const baseApi = createApi({
             },
             providesTags: ['todo']
         }),
+        //posting task / Create
         addTodos: builder.mutation({
             query: (data) => ({
                 url: "/task",
@@ -31,14 +33,16 @@ export const baseApi = createApi({
             }),
             invalidatesTags: ['todo']  //for make fetch after the action
         }),
+        //updating task / Update
         updateTodos: builder.mutation({
             query: (options) => ({
                 url: `/task/${options.id}`,
                 method: "PUT",
                 body: options.data,
-            }), 
+            }),
             invalidatesTags: ['todo'] //for make fetch after the action
         }),
+        //deleting task / Delete
         deleteTodos: builder.mutation({
             query: (options) => ({
                 url: `/task/${options.id}`,
@@ -50,4 +54,5 @@ export const baseApi = createApi({
     }),
 });
 
+//CRUD api hooks
 export const { useGetTodosQuery, useAddTodosMutation, useUpdateTodosMutation, useDeleteTodosMutation } = baseApi;

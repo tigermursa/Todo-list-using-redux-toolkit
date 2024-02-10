@@ -1,4 +1,4 @@
-import { useAppSelector } from "@/redux/hook";
+
 import AddTodoModal from "./AddTodoModal";
 import TodoCard from "./TodoCard";
 import TodoFilter from "./TodoFilter";
@@ -49,7 +49,7 @@ const TodoContainer = () => {
   </div>*/}
             <div className="bg-white p-1 md:p-4 lg:p-5 w-full h-full rounded-lg space-y-4">
               {todos?.data?.map((item) => (
-                <TodoCard key={item._id} {...item} />
+                <TodoCard key={item._id} {...item} /> //spread all data ..
               ))}
             </div>
           </div>

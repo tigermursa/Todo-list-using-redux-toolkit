@@ -8,6 +8,7 @@ export const store = configureStore({
         [baseApi.reducerPath]: baseApi.reducer,
         todos: todoReducer
     },
+    //??
     middleware: buildGetDefaultMiddleware => buildGetDefaultMiddleware().concat(baseApi.middleware)
 
 })

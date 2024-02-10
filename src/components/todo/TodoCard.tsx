@@ -126,7 +126,7 @@ const TodoCard = ({
           >
             <Trash2 />
           </Button>
-          <UpdateTodoModal
+          <UpdateTodoModal  //should have use spread 
             _id={_id}
             title={title}
             description={description}
